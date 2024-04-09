@@ -13,8 +13,11 @@ public class StrConsumerListener {
 
     //ANOTACAO CUSTOMIZADA PARA SIMPLIFICAR A CRIACAO DE LISTENERS
    @StrConsumerCustomListener(groupId = "1")
-    public void create(String message) {
+    public void create(String message) throws Exception {
         log.info("CREATE: Message received: " + message);
+        if (message.contains("Testing")) {
+            throw new Exception("Mensagem contém a palavra Testing, não pode ser consumida!");
+        }
     }
    @StrConsumerCustomListener(groupId = "1")
     public void log(String message) {
