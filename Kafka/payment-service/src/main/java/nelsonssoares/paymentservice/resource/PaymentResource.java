@@ -9,5 +9,5 @@ import org.springframework.web.bind.annotation.RequestBody;
 public interface PaymentResource {
 
     @PostMapping
-    ResponseEntity<Payment> createPayment(@RequestBody Payment payment);
+    ResponseEntity<Payment> createPayment(@RequestBody Payment payment) throws InterruptedException;
 }
